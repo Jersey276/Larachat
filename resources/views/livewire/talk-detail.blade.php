@@ -25,6 +25,6 @@
             <label for="text">Message</label>
             <textarea class="border" wire:model="message.text"></textarea>
         </div>
-        <input class="bg-lime-500 ml-auto p-2 border" type="submit" value="send">
+        <input class="bg-lime-500 py-2 text-white px-2 border rounded-md" type="submit" value="send">
     </form>
 </div>

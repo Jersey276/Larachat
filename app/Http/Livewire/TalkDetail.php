@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Message;
 use App\Http\Service\MailService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
 class TalkDetail extends Component
@@ -24,8 +26,8 @@ class TalkDetail extends Component
     public function mount(Request $request, int $id)
     {
         $this->talk = Talk::with('messages')->with('messages.author')->find($id);
-        if ($request->session()->get('user')) {
-            $this->user = User::find($request->session()->get('user'));
+        if (Cookie::get('user')) {
+            $this->user = User::find(Cookie::get('user'));
         } else {
             $this->user = new User();
         }
@@ -45,13 +47,13 @@ class TalkDetail extends Component
     public function postMessage(Request $request)
     {
         if ($this->user->id == null) {
-                $user = User::create([
+                $user = User::firstOrCreate([
                 'name' => $this->user->name,
                 'email' => $this->user->email
             ]);
             $this->user = $user;
         }
-        $request->session()->put('user',$this->user->id);
+        Cookie::queue('user',$this->user->id,36000);
         $this->message->talk()->associate($this->talk);
         $this->message->author()->associate($this->user);
 
