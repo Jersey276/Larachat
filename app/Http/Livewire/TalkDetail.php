@@ -59,7 +59,7 @@ class TalkDetail extends Component
     public function postMessage()
     {
         $this->validate($this->rules,$this->messages);
-        if ($this->user->id == null && $this->name == $this->user->name) {
+        if ($this->user->id == null && $this->name != $this->user->name) {
                 $user = User::firstOrCreate([
                 'name' => $this->name,
                 'email' => $this->email
