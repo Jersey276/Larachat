@@ -25,5 +25,6 @@ This project has been make in 6-8 hours. This estimation include :
 | front-end development                                                        | 1 hour 15 minutes |
 | interface development/design integration                                     | 30 minutes        |
 | bug fixing                                                                   | 30 minutes        |
+| mail design                                                                  | 10 minutes        | 
 | final check-up                                                               | 30 minutes        |
-|total                                                                         | 7 hours 30 minutes|
+|total                                                                         | 7 hours 40 minutes|

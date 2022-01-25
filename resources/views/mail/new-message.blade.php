@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{url('/css/app.css')}}" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    <h1>nouveau message sur la discussion {{ $talk->subject}}</h1>
-    <p>L'utilisateur {{ $newMessage->author->name }} a écrit ceçi : </p>
-    <p>{{ $newMessage->text}}</p>
-    <a href="{{url('/'.$talk->id)}}">voir la discussion</a>
+<body class="container mx-auto">
+    <div class="flex flex-col content-center text-center border rounded">
+    <h1 class="text-lg font-bold">nouveau message sur la discussion {{ $talk->subject}}</h1>
+        <p>L'utilisateur {{ $newMessage->author->name }} a écrit ceçi : </p>
+        <p class="italic mb-3">{{ $newMessage->text}}</p>
+        <a class='border bg-lime-500 p-2 text-white mx-auto mb-3' href="{{url('/'.$talk->id)}}">rejoindre la discussion</a>
+    </div>
 </body>
 </html>
