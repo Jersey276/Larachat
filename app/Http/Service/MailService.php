@@ -9,13 +9,20 @@ use Illuminate\Support\Facades\Mail;
 
 class MailService
 {
-    public static function sendNewMessageMail(Message $message, Talk $talk)
+    /**
+     * prepare data and send mail for notice about new message in talk
+     */
+    public static function sendNewMessageMail(Message $message, Talk $talk) : void
     {
         $users = self::getAllReceiver($talk);
         Mail::bcc($users)->send(new newMessage($message, $talk));
     }
 
-
+    /**
+     * collect list of user who write inside talk
+     * @param Talk $talk
+     * @return array
+     */
     private static function getAllReceiver(Talk $talk) : array
     {
         $users = [];

@@ -15,15 +15,18 @@
     <form class="border p-4 flex flex-col justify-between" wire:submit.prevent="postMessage">
         <div class="mb-3 w-full flex flex-col">
             <label for="name">Nom</label>
-            <input class="border" type="text" wire:model="user.name">
+            <input class="border" type="text" wire:model="name">
+            @error('name') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
         </div>
         <div class="mb-3 flex flex-col">
             <label for="email">email</label>
-            <input class="border" type="email" wire:model="user.email">
+            <input class="border" type="email" wire:model="email">
+            @error('email') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
         </div>
         <div class="mb-3 flex flex-col">  
             <label for="text">Message</label>
-            <textarea class="border" wire:model="message.text"></textarea>
+            <textarea class="border" wire:model="text"></textarea>
+            @error('text') <span class="text-xs text-red-600">{{ $message }}</span> @enderror
         </div>
         <input class="bg-lime-500 py-2 text-white px-2 border rounded-md" type="submit" value="send">
     </form>
