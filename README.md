@@ -26,5 +26,4 @@ This project has been make in 6-8 hours. This estimation include :
 | interface development/design integration                                     | 30 minutes        |
 | bug fixing                                                                   | 30 minutes        |
 | final check-up                                                               | 30 minutes        |
-|------------------------------------------------------------------------------|-------------------|
 |total                                                                         | 7 hours 30 minutes|
